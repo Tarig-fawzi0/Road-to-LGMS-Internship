@@ -1,29 +1,52 @@
 # 🛡️ Road to LGMS Internship
 
-This repository documents my 10-month preparation journey for a Cybersecurity Internship at **LGMS Berhad**.
+This repository documents my cybersecurity learning journey and preparation for a future internship opportunity at LGMS Berhad.
 
-## 🚀 The Mission
-To master Web Application Penetration Testing fundamentals and build a solid technical foundation before February 2027.
+## 🚀 Objective
+To build a strong foundation in:
+- Web Application Security
+- Networking
+- SQL & Databases
+- Penetration Testing Fundamentals
 
----
-
-## 📅 Semester Break Goals (Current Phase)
-### 🌐 Week 1: Web Networking Fundamentals
-- [ ] Understand the **HTTP/HTTPS** protocol (Methods, Status Codes).
-- [ ] Analyze the **Request/Response** cycle.
-- [ ] Learn how **Cookies** and **Sessions** work.
-
-### 💾 Week 2: Database & SQL Secrets
-- [ ] Master basic **SQL queries** (SELECT, INSERT, UPDATE).
-- [ ] Understand the logic behind **SQL Injection**.
-- [ ] Practice basic bypass techniques in lab environments.
+and continuously improve my practical skills through labs, notes, and hands-on practice.
 
 ---
 
-## 🛠️ Tech Stack & Tools
-- **OS:** Kali Linux (Learning)
-- **Tools:** Burp Suite, Wireshark, Nmap.
-- **Platforms:** TryHackMe, PortSwigger Academy.
+## 📅 Current Learning Phase
+
+### 🌐 Networking & Web Fundamentals
+- Understanding HTTP/HTTPS
+- Learning the Request/Response lifecycle
+- Studying Cookies, Sessions, and Authentication
+- Reviewing Networking fundamentals (CCNA concepts)
+
+### 💾 SQL & Database Security
+- Practicing SQL queries
+- Understanding SQL Injection fundamentals
+- Learning secure database interaction
 
 ---
-*“Success is a journey, not a destination. Tracking my progress one commit at a time.”*
+
+## 🛠️ Tools & Platforms
+- Burp Suite
+- Wireshark
+- Nmap
+- TryHackMe
+- PortSwigger Academy
+
+---
+
+## 📚 Current Focus
+- Web Application Security
+- API Security
+- Practical Labs & Writeups
+
+---
+
+## 📈 Goal
+To become a skilled and professional Web Application Penetration Tester.
+
+---
+
+*"Learning cybersecurity one step at a time."*
