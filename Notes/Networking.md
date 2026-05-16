@@ -71,3 +71,34 @@ Understanding Layer 3 is important for:
 
 ## Practical Observation
 Using traceroute/tracert shows how packets travel across multiple routers before reaching a web server.
+
+# ICMP, TTL & Traceroute Notes (Web Pentesting Perspective)
+
+## What I Learned
+- ICMP is used for network testing and error reporting.
+- Ping uses ICMP Echo Request and Echo Reply to test host reachability.
+- Traceroute uses TTL values to discover the path packets take across routers.
+- Each router decreases TTL by 1.
+- When TTL reaches 0, the router sends an ICMP Time Exceeded message.
+- A hop represents one router in the network path.
+
+---
+
+## Private vs Public IP Addresses
+
+### Private IP Ranges
+- 10.0.0.0 – 10.255.255.255
+- 172.16.0.0 – 172.31.255.255
+- 192.168.0.0 – 192.168.255.255
+
+### Public IP
+- Reachable on the internet
+- Assigned by ISPs or hosting providers
+
+---
+
+## Practical Traceroute Analysis
+
+Command used:
+bash
+tracert google.com
