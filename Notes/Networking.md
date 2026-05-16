@@ -102,3 +102,33 @@ Using traceroute/tracert shows how packets travel across multiple routers before
 Command used:
 bash
 tracert google.com
+
+# Transport Layer Fundamentals
+
+## Overview
+The Transport Layer is responsible for reliable communication between devices and applications.
+
+## Important Concepts Learned
+- TCP vs UDP
+- TCP 3-Way Handshake
+- Source and Destination Ports
+- Socket Communication
+- TCP Reliability
+- Flow Control
+- Congestion Avoidance
+
+## Practical Networking Observations
+- Analyzed TCP traffic using Wireshark
+- Observed SYN, SYN-ACK, and ACK packets
+- Monitored HTTP traffic and GET requests
+- Used netstat to inspect active connections and ports
+- Identified HTTP (80) and HTTPS (443) communications
+
+## Web Security Relevance
+Understanding the Transport Layer is essential for:
+- Web traffic analysis
+- Burp Suite interception
+- Packet analysis with Wireshark
+- Understanding HTTP/HTTPS communication
+- Reconnaissance and service identification
+- Understanding how browsers communicate with web servers
