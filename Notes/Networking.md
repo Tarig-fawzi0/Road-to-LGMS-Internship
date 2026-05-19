@@ -126,9 +126,42 @@ The Transport Layer is responsible for reliable communication between devices an
 
 ## Web Security Relevance
 Understanding the Transport Layer is essential for:
+
+
 - Web traffic analysis
 - Burp Suite interception
 - Packet analysis with Wireshark
 - Understanding HTTP/HTTPS communication
 - Reconnaissance and service identification
 - Understanding how browsers communicate with web servers
+
+# Presentation and Session Layer
+
+## Presentation Layer
+The Presentation Layer is responsible for:
+- Data formatting
+- Compression
+- Encryption and decryption
+
+Examples:
+- JSON
+- HTML
+- PNG
+- HTTPS/TLS encryption
+
+## Session Layer
+The Session Layer manages communication sessions between applications.
+
+Important concepts:
+- Sessions
+- Cookies
+- Authentication
+- User login tracking
+
+## Web Security Relevance
+Understanding these layers is important for:
+- HTTPS encryption
+- Session management
+- Cookie analysis
+- Authentication mechanisms
+- Web application security testing
