@@ -84,9 +84,9 @@ and continuously improve my practical skills through labs, notes, and hands-on p
 ---
 
 ## 🌐 Networking & Web Fundamentals
-- [ ] Reviewing Networking fundamentals (CCNA concepts)
-- [ ] Started studying HTTP/HTTPS communication
-- [ ] Understanding Request & Response lifecycle
+- [X] Reviewing Networking fundamentals (CCNA concepts)
+- [X] Started studying HTTP/HTTPS communication
+- [X] Understanding Request & Response lifecycle
 - [ ] Studying Headers, Cookies, and Sessions
 - [ ] Practicing packet analysis with Wireshark
 - [ ] Strengthening TCP/IP and Web communication knowledge
