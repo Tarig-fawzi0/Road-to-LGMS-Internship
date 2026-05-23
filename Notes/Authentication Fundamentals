@@ -1,0 +1,30 @@
+# Authentication Fundamentals
+
+Authentication verifies the identity of a user.
+
+Examples:
+- Username and Password
+- Email and Password
+- MFA
+- Biometrics
+
+Authentication Flow:
+
+User
+→ Login Form
+→ Credentials Submitted
+→ Server Validation
+→ Session Created
+→ Cookie Issued
+→ Authenticated User
+
+Authentication = Who are you?
+
+Authorization = What are you allowed to do?
+
+Important items to identify in Burp Suite:
+- POST Requests
+- Login Parameters
+- Set-Cookie Headers
+- Session Cookies
+- Authentication Responses
