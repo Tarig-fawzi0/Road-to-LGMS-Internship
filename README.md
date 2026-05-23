@@ -222,9 +222,9 @@ and continuously improve my practical skills through labs, notes, and hands-on p
 - [x] Started studying HTTP/HTTPS communication
 - [x] Understanding Request & Response lifecycle
 - [x] Studying Headers, Cookies, and Sessions
-- [ ] Understanding Authentication Fundamentals
+- [x] Understanding Authentication Fundamentals
 - [x] Practicing Packet Analysis with Wireshark
-- [ ] Strengthening TCP/IP and DNS Knowledge
+- [x] Strengthening TCP/IP and DNS Knowledge
 
 ---
 
