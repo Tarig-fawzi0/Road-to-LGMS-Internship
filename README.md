@@ -221,9 +221,9 @@ and continuously improve my practical skills through labs, notes, and hands-on p
 - [x] Reviewing Networking fundamentals (CCNA concepts)
 - [x] Started studying HTTP/HTTPS communication
 - [x] Understanding Request & Response lifecycle
-- [ ] Studying Headers, Cookies, and Sessions
+- [x] Studying Headers, Cookies, and Sessions
 - [ ] Understanding Authentication Fundamentals
-- [ ] Practicing Packet Analysis with Wireshark
+- [x] Practicing Packet Analysis with Wireshark
 - [ ] Strengthening TCP/IP and DNS Knowledge
 
 ---
