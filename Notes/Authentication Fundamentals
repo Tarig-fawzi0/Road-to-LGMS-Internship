@@ -10,17 +10,27 @@ Examples:
 
 Authentication Flow:
 
-User
-→ Login Form
-→ Credentials Submitted
-→ Server Validation
-→ Session Created
-→ Cookie Issued
-→ Authenticated User
+ User
+ ↓
+Login Page
+ ↓
+Enter Credentials
+ ↓
+POST Request
+ ↓
+Server Validation
+ ↓
+Session Creation
+ ↓
+Set-Cookie
+ ↓
+Authenticated User
+
 
 Authentication = Who are you?
 
 Authorization = What are you allowed to do?
+
 
 Important items to identify in Burp Suite:
 - POST Requests
