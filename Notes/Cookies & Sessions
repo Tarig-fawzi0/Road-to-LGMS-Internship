@@ -1,0 +1,155 @@
+# Cookies & Sessions Fundamentals
+
+## What is a Cookie?
+
+A Cookie is a small piece of data stored in the user's browser.
+
+The server sends a cookie to the browser, and the browser automatically includes it in future requests to the same website.
+
+Example:
+
+```http
+Cookie: sessionid=abc123
+```
+
+---
+
+## What is a Session?
+
+A Session is data stored on the server that represents a user's activity and authentication state.
+
+Example:
+
+```text
+Session ID: abc123
+
+User: Ahmed
+Role: User
+Logged In: Yes
+```
+
+The server uses the Session ID to identify the user.
+
+---
+
+## Cookie vs Session
+
+| Cookie | Session |
+|----------|----------|
+| Stored in the browser | Stored on the server |
+| Sent with requests | Used by the server |
+| Usually stores Session ID | Stores user data |
+| Can be viewed by the user | Managed by the server |
+
+---
+
+## Why Do We Need Sessions?
+
+HTTP is a stateless protocol.
+
+This means the server does not remember previous requests.
+
+Without sessions:
+
+- The server would forget who the user is.
+- Users would need to log in on every page.
+
+Sessions allow the server to remember authenticated users across multiple requests.
+
+---
+
+## Login Flow
+
+### Step 1
+
+User submits credentials:
+
+```text
+Username + Password
+```
+
+### Step 2
+
+The server verifies the credentials.
+
+### Step 3
+
+The server creates a session:
+
+```text
+abc123xyz
+```
+
+### Step 4
+
+The server sends a cookie:
+
+```http
+Set-Cookie: sessionid=abc123xyz
+```
+
+### Step 5
+
+The browser stores the cookie.
+
+### Step 6
+
+Future requests automatically include the cookie:
+
+```http
+GET /profile
+
+Cookie: sessionid=abc123xyz
+```
+
+### Step 7
+
+The server checks the Session ID and identifies the user.
+
+---
+
+## Logout Flow
+
+When the user clicks Logout:
+
+1. The browser sends the session cookie.
+2. The server destroys the session.
+3. The user is no longer authenticated.
+
+Even if the browser still has the cookie, the server cannot find a valid session.
+
+---
+
+## Key Takeaways
+
+- HTTP does not remember users.
+- Sessions store user information on the server.
+- Cookies usually store the Session ID.
+- Browsers automatically send cookies with requests.
+- The server uses the Session ID to identify authenticated users.
+
+---
+
+## Practical Observation in Burp Suite
+
+### During Login
+
+Look for:
+
+```http
+Set-Cookie: sessionid=abc123xyz
+```
+
+### After Login
+
+Look for:
+
+```http
+Cookie: sessionid=abc123xyz
+```
+
+### Important
+
+**Set-Cookie** = Server → Browser
+
+**Cookie** = Browser → Server
