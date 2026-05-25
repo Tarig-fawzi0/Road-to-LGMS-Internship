@@ -1,0 +1,34 @@
+## Practical Findings
+
+Target:
+
+uniten.edu.my
+
+Request Method:
+
+GET
+
+Path:
+
+/
+
+Response Status:
+
+200 OK
+
+Server:
+
+Microsoft-IIS/10.0
+
+Technology:
+
+ASP.NET
+
+Content Type:
+
+text/html
+
+The server successfully responded with an HTML page and disclosed the web server and backend technology in HTTP headers.
+
+
+
