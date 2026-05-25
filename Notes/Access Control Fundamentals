@@ -1,0 +1,67 @@
+## What is Access Control?
+
+Access Control determines what actions a user is allowed to perform after authentication.
+
+Authentication answers:
+
+Who are you?
+
+Access Control answers:
+
+What are you allowed to do?
+
+---
+
+## Example
+
+User:
+
+- View Profile
+- Edit Profile
+
+Administrator:
+
+- View Profile
+- Manage Users
+- Delete Users
+- Access Admin Panel
+
+---
+
+## Common Access Control Types
+
+### Vertical Access Control
+
+User attempts to access administrator functionality.
+
+Example:
+
+/admin
+
+### Horizontal Access Control
+
+One user accesses another user's data.
+
+Example:
+
+/account?id=101
+
+### Context-Dependent Access Control
+
+Access depends on specific conditions such as time, workflow stage, or user state.
+
+---
+
+## Important Concept
+
+Authentication identifies the user.
+
+Access Control determines permissions.
+
+A user may be authenticated but still not authorized to access certain resources.
+
+---
+
+## Security Goal
+
+Users should only access resources and functions that match their assigned permissions.
