@@ -1,0 +1,50 @@
+# Authentication Flow Analysis
+
+## Objective
+
+Understand how authentication works in modern web applications.
+
+
+## Practical Steps
+
+1. Visited the login page.
+2. Captured GET /login request.
+3. Submitted credentials.
+4. Captured POST /login request.
+5. Analyzed authentication response.
+6. Observed session cookie creation.
+7. Verified session usage in later requests.
+
+---
+
+## Authentication Flow
+
+GET /login
+↓
+POST credentials
+↓
+Server verification
+↓
+Session creation
+↓
+Authenticated requests
+
+---
+
+## Findings
+
+Observed user credentials transmitted through a POST request.
+
+The server validated credentials and created a session using cookies.
+
+Subsequent requests included the session cookie, allowing the server to identify the authenticated user.
+
+---
+
+## Lessons Learned
+
+- Authentication verifies user identity.
+- Login forms typically use POST requests.
+- Sessions maintain authentication state.
+- Cookies carry session identifiers.
+- Web applications use session cookies to recognize authenticated users.
