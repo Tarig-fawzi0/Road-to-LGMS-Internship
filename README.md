@@ -193,7 +193,6 @@ and continuously improve my practical skills through labs, notes, and hands-on p
 ---
 
 # 📚 Current Focus
-
 - Web Application Security
 - API Security
 - Practical Labs & Writeups
@@ -201,7 +200,7 @@ and continuously improve my practical skills through labs, notes, and hands-on p
 - SQL Fundamentals Review
 - Linux Fundamentals
 - Technical Documentation Skills
-
+Building strong Linux, Networking, HTTP, and Web Fundamentals before advanced vulnerability research.
 ---
 
 # 📝 Progress Tracking
