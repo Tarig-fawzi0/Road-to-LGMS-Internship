@@ -229,8 +229,8 @@ Building strong Linux, Networking, HTTP, and Web Fundamentals before advanced vu
 
 ## 🐧 Linux Fundamentals
 
-- [ ] Linux File System Basics
-- [ ] File Permissions & Ownership
+- [x] Linux File System Basics
+- [x] File Permissions & Ownership
 - [ ] Users & Groups Management
 - [ ] SSH Fundamentals
 - [ ] Process Management
