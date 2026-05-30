@@ -1,0 +1,477 @@
+# Linux Fundamentals
+
+## Overview
+
+Linux is one of the most widely used operating systems in servers, cloud environments, cybersecurity, and web application infrastructure. Understanding Linux fundamentals is essential for system administration, network security, and web penetration testing.
+
+---
+
+# 1. Linux File System Structure
+
+Linux organizes files using a hierarchical directory structure that starts from the root directory:
+
+```text
+/
+├── home
+├── root
+├── etc
+├── var
+├── usr
+├── tmp
+```
+
+### Important Directories
+
+| Directory | Purpose                             |
+| --------- | ----------------------------------- |
+| /home     | User files and personal directories |
+| /root     | Home directory of the root user     |
+| /etc      | System configuration files          |
+| /var      | Logs and variable data              |
+| /usr      | Installed applications and binaries |
+| /tmp      | Temporary files                     |
+
+### Commands Practiced
+
+```bash
+pwd
+ls
+cd
+cd ..
+cd /
+```
+
+### Lessons Learned
+
+* Linux uses a hierarchical file system.
+* The root directory `/` is the starting point of the entire system.
+* Users typically work inside `/home/username`.
+
+---
+
+# 2. File & Directory Management
+
+Managing files and directories is a core Linux skill.
+
+### Commands Practiced
+
+Create directory:
+
+```bash
+mkdir linux-practice
+```
+
+Create file:
+
+```bash
+touch notes.txt
+```
+
+Copy file:
+
+```bash
+cp notes.txt backup.txt
+```
+
+Rename or move file:
+
+```bash
+mv backup.txt linux-notes.txt
+```
+
+Delete file:
+
+```bash
+rm linux-notes.txt
+```
+
+Display file contents:
+
+```bash
+cat notes.txt
+```
+
+### Lessons Learned
+
+* Files and directories are managed through command-line utilities.
+* `mv` can rename or move files.
+* `cat` is useful for quickly viewing file contents.
+
+---
+
+# 3. Permissions & Ownership
+
+Linux controls access through permissions.
+
+### Permission Types
+
+| Permission | Meaning |
+| ---------- | ------- |
+| r          | Read    |
+| w          | Write   |
+| x          | Execute |
+
+Example:
+
+```text
+-rw-r--r--
+```
+
+### Understanding chmod
+
+```bash
+chmod 777 file.txt
+chmod 644 file.txt
+chmod 600 secret.txt
+```
+
+### Common Permission Values
+
+| Value | Meaning                                    |
+| ----- | ------------------------------------------ |
+| 777   | Full access for everyone                   |
+| 755   | Full owner access, read/execute for others |
+| 644   | Owner read/write, others read only         |
+| 600   | Owner only                                 |
+
+### Lessons Learned
+
+* Incorrect permissions can create security risks.
+* Sensitive files should use restrictive permissions.
+
+---
+
+# 4. Users & Groups
+
+Linux uses users and groups to control access.
+
+### Commands Practiced
+
+Current user:
+
+```bash
+whoami
+```
+
+User information:
+
+```bash
+id
+```
+
+User groups:
+
+```bash
+groups
+```
+
+### Root User
+
+```text
+root
+```
+
+* UID = 0
+* Highest privilege account
+
+### Using sudo
+
+```bash
+sudo whoami
+```
+
+### Lessons Learned
+
+* Users belong to groups.
+* sudo provides temporary administrative privileges.
+* Root has unrestricted access.
+
+---
+
+# 5. Process Management
+
+A process is a running program in memory.
+
+### Commands Practiced
+
+View current processes:
+
+```bash
+ps
+```
+
+View all processes:
+
+```bash
+ps aux
+```
+
+Search processes:
+
+```bash
+ps aux | grep bash
+```
+
+Real-time monitoring:
+
+```bash
+top
+```
+
+Create a background process:
+
+```bash
+sleep 300 &
+```
+
+Terminate a process:
+
+```bash
+kill PID
+```
+
+### Lessons Learned
+
+* Every process has a Process ID (PID).
+* Linux allows monitoring and controlling running applications.
+* Process management is important in system administration and incident response.
+
+---
+
+# 6. Package Management (APT)
+
+Ubuntu uses APT to manage software.
+
+### Commands Practiced
+
+Update repositories:
+
+```bash
+sudo apt update
+```
+
+List available updates:
+
+```bash
+apt list --upgradable
+```
+
+Search packages:
+
+```bash
+apt search nmap
+```
+
+Package information:
+
+```bash
+apt show nmap
+```
+
+Install package:
+
+```bash
+sudo apt install package-name
+```
+
+Remove package:
+
+```bash
+sudo apt remove package-name
+```
+
+### Lessons Learned
+
+* APT simplifies software installation and updates.
+* Package repositories provide trusted software sources.
+
+---
+
+# 7. SSH Fundamentals
+
+SSH provides secure remote access.
+
+### Verify SSH Client
+
+```bash
+ssh -V
+which ssh
+```
+
+### Install SSH Server
+
+```bash
+sudo apt install openssh-server
+```
+
+### Service Management
+
+```bash
+systemctl status ssh
+sudo systemctl start ssh
+sudo systemctl enable ssh
+```
+
+### Local SSH Connection
+
+```bash
+ssh tarig@localhost
+```
+
+### Lessons Learned
+
+* SSH encrypts communication.
+* SSH is the standard protocol for Linux server administration.
+* Port 22 is the default SSH port.
+
+---
+
+# 8. Networking Commands
+
+### View Network Interfaces
+
+```bash
+ip a
+```
+
+### View Routing Table
+
+```bash
+ip route
+```
+
+### Display IP Address
+
+```bash
+hostname -I
+```
+
+### Test Connectivity
+
+```bash
+ping 127.0.0.1
+ping google.com
+```
+
+### DNS Lookup
+
+```bash
+nslookup google.com
+```
+
+### View Listening Ports
+
+```bash
+ss -tuln
+```
+
+### Lessons Learned
+
+* Every device requires an IP address.
+* DNS translates domain names into IP addresses.
+* Open ports reveal running services.
+
+---
+
+# 9. Log Analysis
+
+Linux stores logs inside:
+
+```text
+/var/log
+```
+
+### Important Logs
+
+| File     | Purpose                 |
+| -------- | ----------------------- |
+| auth.log | Authentication events   |
+| syslog   | General system logs     |
+| dmesg    | Kernel messages         |
+| dpkg.log | Package management logs |
+
+### Commands Practiced
+
+View recent log entries:
+
+```bash
+sudo tail /var/log/auth.log
+```
+
+Login history:
+
+```bash
+last
+```
+
+### Lessons Learned
+
+* Logs are critical for troubleshooting and security investigations.
+* Authentication logs help identify login activity.
+
+---
+
+# 10. Text Processing
+
+### grep
+
+Search inside files:
+
+```bash
+grep admin users.txt
+```
+
+### head
+
+Display first lines:
+
+```bash
+head users.txt
+```
+
+### tail
+
+Display last lines:
+
+```bash
+tail users.txt
+```
+
+### wc
+
+Count lines and words:
+
+```bash
+wc users.txt
+wc -l users.txt
+```
+
+### sort
+
+Sort file contents:
+
+```bash
+sort users.txt
+```
+
+### Lessons Learned
+
+* Text-processing tools are essential for log analysis.
+* grep is one of the most frequently used Linux commands in cybersecurity.
+
+---
+
+# Skills Acquired
+
+* Linux Navigation
+* File & Directory Management
+* Permissions & Ownership
+* Users & Groups
+* Process Management
+* Package Management (APT)
+* SSH Administration
+* Networking Fundamentals
+* Log Analysis
+* Text Processing
+
+These skills provide a strong foundation for Web Security, System Administration, Network Security, and future penetration testing studies.
