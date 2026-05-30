@@ -231,11 +231,11 @@ Building strong Linux, Networking, HTTP, and Web Fundamentals before advanced vu
 
 - [x] Linux File System Basics
 - [x] File Permissions & Ownership
-- [ ] Users & Groups Management
-- [ ] SSH Fundamentals
-- [ ] Process Management
-- [ ] Package Management (APT)
-- [ ] Log Analysis Basics
+- [x] Users & Groups Management
+- [x] SSH Fundamentals
+- [x] Process Management
+- [x] Package Management (APT)
+- [x] Log Analysis Basics
 
 ---
 
