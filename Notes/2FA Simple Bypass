@@ -1,0 +1,147 @@
+# Lab 01 - 2FA Simple Bypass
+
+## Category
+Authentication Vulnerabilities
+
+## Vulnerability
+2FA Bypass
+
+---
+
+## What is 2FA?
+
+Two-Factor Authentication (2FA) is an additional security layer that requires:
+
+1. Username and Password
+2. Verification Code (OTP)
+
+Example:
+
+Username: carlos
+Password: montoya
+
+↓
+
+Enter 4-digit verification code
+
+↓
+
+Access account
+
+---
+
+## Expected Secure Behavior
+
+After successful login, the user should not be able to access protected resources until the 2FA verification is completed.
+
+Example:
+
+/login
+
+↓
+
+/login2
+
+↓
+
+Enter OTP
+
+↓
+
+/my-account
+
+---
+
+## Vulnerability
+
+The application only checked whether the user completed the username/password step.
+
+It did not verify that the 2FA process was completed before allowing access to protected pages.
+
+---
+
+## Discovery Process
+
+Login with:
+
+wiener:peter
+
+Observe redirection:
+
+/login
+→
+/login2
+
+The application requests a verification code.
+
+Using Burp Suite and browser navigation, access:
+
+/my-account
+
+directly.
+
+---
+
+## Attack
+
+Instead of completing:
+
+/login2
+
+Navigate directly to:
+
+/my-account?id=carlos
+
+or
+
+/my-account
+
+while authenticated.
+
+The application grants access without validating the OTP.
+
+---
+
+## Why Did It Work?
+
+The server trusted that reaching the account page means the user already passed 2FA.
+
+No server-side validation existed.
+
+Authentication state:
+
+Password ✓
+
+2FA ✗
+
+Access Granted ✓
+
+---
+
+## Impact
+
+- Account takeover
+- Authentication bypass
+- Unauthorized access
+
+---
+
+## Fix
+
+The server must verify:
+
+User authenticated = TRUE
+
+AND
+
+2FA completed = TRUE
+
+before granting access to protected resources.
+
+---
+
+## Lesson Learned
+
+Never trust client-side navigation.
+
+Always enforce authorization and authentication checks on the server.
