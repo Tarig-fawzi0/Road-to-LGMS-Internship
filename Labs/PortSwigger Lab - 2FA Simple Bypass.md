@@ -175,9 +175,8 @@ Accessing /my-account without entering 2FA.
 ### Screenshot 3
 
 Carlos account successfully accessed.
-
-![Uploading image.png…]()
-
+ 
+<img width="1869" height="1034" alt="image" src="https://github.com/user-attachments/assets/d26ca405-c4d5-4ffa-883e-4faa44121d41" />
 
 ---
 
