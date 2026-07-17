@@ -34,20 +34,19 @@ and continuously improve my practical skills through labs, notes, and hands-on p
 ---
 
 ## 🐧 Linux Fundamentals
-
- Linux File System Structure
-File & Directory Management
-Permissions & Ownership (شامل SUID/SGID, ACLs)
-Users & Groups
-Process Management (شامل /proc, lsof, strace)
-Systemd & Services
-Cron & Scheduled Tasks
-Package Management (APT)
-Networking Commands
-SSH Fundamentals (شامل الـ hardening)
-Log Analysis (بأسماء ملفات وأدوات محددة)
-Environment Variables & PATH
-Bash Scripting
+1.Linux File System Structure
+2.File & Directory Management
+3.Permissions & Ownership (شامل SUID/SGID, ACLs)
+4.Users & Groups
+5.Process Management (شامل /proc, lsof, strace)
+6.Systemd & Services
+7.Cron & Scheduled Tasks
+8.Package Management (APT)
+9.Networking Commands
+10.SSH Fundamentals (شامل الـ hardening)
+11.Log Analysis (بأسماء ملفات وأدوات محددة)
+12.Environment Variables & PATH
+13.Bash Scripting
 
 ---
 
