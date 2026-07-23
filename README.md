@@ -262,12 +262,12 @@ Building strong Linux, Networking, HTTP, and Web Fundamentals before advanced vu
 
 ## 🔐 Web Application Security Journey
 
-- [ ] Burp Suite Fundamentals
-- [ ] Web Request Manipulation
+- [x] Burp Suite Fundamentals
+- [x] Web Request Manipulation
 - [ ] Cross-Site Scripting (XSS)
-- [ ] Authentication Vulnerabilities
+- [x] Authentication Vulnerabilities
 - [ ] Session Vulnerabilities
-- [ ] Access Control Vulnerabilities
+- [x] Access Control Vulnerabilities
 - [ ] API Security Fundamentals
 - [ ] OWASP Top 10 Review
 - [ ] Secure Coding Basics
@@ -276,13 +276,13 @@ Building strong Linux, Networking, HTTP, and Web Fundamentals before advanced vu
 
 ## 🧪 Practical Learning & Labs
 
-- [ ] Started Learning Through Hands-On Platforms
+- [x] Started Learning Through Hands-On Platforms
 - [ ] TryHackMe Web Fundamentals Labs
-- [ ] PortSwigger Academy Labs
-- [ ] First Web Security Writeup
-- [ ] First Burp Suite Practical Report
+- [x] PortSwigger Academy Labs
+- [x] First Web Security Writeup
+- [x] First Burp Suite Practical Report
 - [ ] First API Security Lab
-- [ ] Building Practical GitHub Documentation
+- [x] Building Practical GitHub Documentation
 
 ---
 
